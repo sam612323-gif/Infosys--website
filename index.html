@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Infosys Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f2f5fa;
+        }
+
+        nav {
+            background: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav h2 {
+            color: #0756a5;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0756a5;
+            margin: 5px;
+        }
+
+        .page {
+            display: none;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        #home {
+            display: block;
+        }
+
+        h1 {
+            color: #0756a5;
+        }
+
+        .form-box {
+            background: white;
+            padding: 20px;
+            max-width: 350px;
+            margin: auto;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #0756a5;
+            color: white;
+            border: none;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <h2>infosys</h2>
+
+    <div>
+        <a href="#home" onclick="showPage('home')">Home</a>
+        <a href="#about" onclick="showPage('about')">About Us</a>
+        <a href="#services" onclick="showPage('services')">Services</a>
+        <a href="#join" onclick="showPage('join')">Join With Us</a>
+    </div>
+</nav>
+
+<div class="page" id="home">
+    <h1>Welcome to Infosys</h1>
+    <p>Navigate Your Next with Technology and Innovation.</p>
+</div>
+
+<div class="page" id="about">
+    <h1>About Us</h1>
+    <p>
+        Infosys is a global leader in digital services
+        and consulting, helping businesses grow through technology.
+    </p>
+</div>
+
+<div class="page" id="services">
+    <h1>Our Services</h1>
+    <p>Digital Services</p>
+    <p>Cloud Computing</p>
+    <p>Artificial Intelligence</p>
+
+    <button onclick="showPage('join')">Join With Us</button>
+</div>
+
+<div class="page" id="join">
+    <h1>Join Our Team</h1>
+    <p>Fill in your details to apply for a job.</p>
+
+    <form class="form-box" id="jobForm">
+        <label>Name</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <label>Qualification</label>
+        <select required>
+            <option value="">Select qualification</option>
+            <option>BCA</option>
+            <option>B.Sc</option>
+            <option>B.E / B.Tech</option>
+            <option>MCA</option>
+            <option>Other</option>
+        </select>
+
+        <label>Upload Resume</label>
+        <input type="file" accept=".pdf,.doc,.docx" required>
+
+        <button type="submit">Submit</button>
+        <p id="message"></p>
+    </form>
+</div>
+
+<script>
+    function showPage(pageName) {
+        document.querySelectorAll(".page").forEach(function(page) {
+            page.style.display = "none";
+        });
+
+        document.getElementById(pageName).style.display = "block";
+    }
+
+    document.getElementById("jobForm").onsubmit = function(event) {
+        event.preventDefault();
+        document.getElementById("message").innerHTML =
+            "Application submitted successfully!";
+    };
+</script>
+
+</body>
+</html>
